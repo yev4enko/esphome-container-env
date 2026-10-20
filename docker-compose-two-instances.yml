@@ -1,0 +1,28 @@
+services:
+  iot-instance-1:
+    image: my-iot-stack:latest
+    container_name: iot-instance-1
+    ports:
+      - "3000:3000"
+      - "8086:8086"
+      - "1883:1883"
+      - "6052:6052"
+    volumes:
+      - instance1-data:/data
+    restart: unless-stopped
+
+  iot-instance-2:
+    image: my-iot-stack:latest
+    container_name: iot-instance-2
+    ports:
+      - "3001:3000"
+      - "8087:8086"
+      - "1884:1883"
+      - "6053:6052"
+    volumes:
+      - instance2-data:/data
+    restart: unless-stopped
+
+volumes:
+  instance1-data:
+  instance2-data:
